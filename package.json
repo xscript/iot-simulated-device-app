@@ -1,0 +1,35 @@
+{
+  "name": "iot-simulated-device-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Mobile Web app to simulate Azure IoT device from your phone",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xscript/iot-simulated-device-app.git"
+  },
+  "keywords": [
+    "IoT"
+  ],
+  "author": "xscript",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xscript/iot-simulated-device-app/issues"
+  },
+  "homepage": "https://github.com/xscript/iot-simulated-device-app#readme",
+  "devDependencies": {
+    "react-scripts": "0.8.3"
+  },
+  "dependencies": {
+    "material-ui": "^0.16.4",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
