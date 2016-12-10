@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import SensorControl from './sensorControl.js'
+import SensorControl from './SensorControl.js'
 
 class App extends Component {
   render() {
@@ -10,8 +10,8 @@ class App extends Component {
       <MuiThemeProvider>
         <div>
           <AppBar title="IoT Device Simulator" showMenuIconButton={false} titleStyle={{ textAlign: 'center' }} />
-          <SensorControl name='Temperature'/>
-          <SensorControl name='Humidity'/>
+          <SensorControl name='TEMPERATURE' unit='℃' value={10} />
+          <SensorControl name='HUMIDITY'unit='%' value={75} />
         </div>
       </MuiThemeProvider>
 /*
