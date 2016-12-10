@@ -2,41 +2,29 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-const DefaultValue = 25;
-
 class SensorControl extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = { 
-      name: props.name, 
-      value: props.value || DefaultValue,
-      unit: props.unit
+    this.state = {
+      name: props.name,
+      scale: props.scale
     };
-    // Bind
-    this.increaseValue = this.increaseValue.bind(this);
-    this.decreaseValue = this.decreaseValue.bind(this);
+    this.addValue = this.addValue.bind(this);
+    this.minusValue = this.minusValue.bind(this);
   }
 
-  componentDidMount() {
-
+  addValue() {
+    this.props.addHandler(this.state.name);
   }
 
-  componentWillUnmount() {
-
-  }
-
-  increaseValue() {
-    this.setState(prevState => ({ value: prevState.value + 1}));
-  }
-
-  decreaseValue() {
-    this.setState(prevState => ({ value: prevState.value - 1}));
+  minusValue() {
+    this.props.minusHandler(this.state.name);
   }
 
   render() {
     var inputStyle = { textAlign: 'center', cursor: 'none', color: 'black' };
     return (
-      <div name={'sensor-control'}>
+      <div>
         <TextField name={this.state.name}
           value={this.state.name}
           disabled={true}
@@ -46,19 +34,19 @@ class SensorControl extends React.Component {
         <div style={{ width: '100%', textAlign: 'center' }}>
           <RaisedButton primary={true}
             label="-"
-            onTouchTap={this.decreaseValue}
-            style={{verticalAlign: 'middle'}}
+            onTouchTap={this.minusValue}
+            style={{ verticalAlign: 'middle' }}
             labelStyle={{ fontSize: '35px' }} />
           <TextField name={this.state.name}
-            value={this.state.value + ' ' + this.state.unit}
+            value={this.props.value + ' ' + this.state.scale}
             disabled={true}
             underlineShow={false}
             style={{ width: '120px' }}
             inputStyle={inputStyle} />
           <RaisedButton primary={true}
             label="+"
-            onTouchTap={this.increaseValue}
-            style={{verticalAlign: 'middle'}}
+            onTouchTap={this.addValue}
+            style={{ verticalAlign: 'middle' }}
             labelStyle={{ fontSize: '35px' }} />
         </div>
       </div>
