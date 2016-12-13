@@ -11,7 +11,7 @@ class SensorContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.timerId = setInterval(() => this.sendTelemetry(), 1000);
+    this.timerId = setInterval(() => this.sendTelemetry(), 3000);
   }
 
   componentWillUnmount() {
